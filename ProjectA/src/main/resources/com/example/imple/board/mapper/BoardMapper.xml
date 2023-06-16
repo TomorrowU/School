@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.imple.board.mapper.BoardMapper">
+
+<update id="boardUpdate">
+	UPDATE BOARD
+        SET
+        <if test="subject != null">
+            SUBJECT = #{subject}
+        </if>
+        <if test="subject != null and content != null"> , </if>
+        <if test="content != null">
+            CONTENT = #{content}
+        </if>
+        WHERE BNO = #{bno}
+</update>
+
+
+</mapper>
+
