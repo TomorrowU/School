@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.example.imple.dept.model.Dept;
 import com.example.imple.emp.model.Emp;
+import com.example.imple.emp.model.EmpDTO;
 
 @Mapper
 public interface EmpMapper {
@@ -29,7 +30,7 @@ public interface EmpMapper {
 	Dept selectDept(int deptno);
 	
 	@Select("select * from emp")
-	List<Emp> selectAll();
+	List<EmpDTO> selectAll();
 	
 	@Select("select * from emp")
 	@Results({

@@ -55,7 +55,7 @@ public class SecurityConfig {
 		});
 		
 		http.formLogin(login -> {
-//			login.loginPage("/user/login");
+			login.loginPage("/user/login");
 			login.defaultSuccessUrl("/", true);
 			login.failureHandler((request, response, e) -> {
 				request.setAttribute("exception", e);

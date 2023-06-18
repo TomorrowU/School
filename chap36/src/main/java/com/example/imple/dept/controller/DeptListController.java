@@ -20,7 +20,7 @@ public class DeptListController implements ListController {
 
 	@Override
 	public void list(Model model, HttpServletRequest request) {
-		var list = mapper.selectAllWithEmps();
+		var list = mapper.selectAll();
 		model.addAttribute("list", list);
 	}
 	

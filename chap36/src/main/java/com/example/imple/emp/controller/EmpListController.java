@@ -19,7 +19,7 @@ public class EmpListController implements ListController {
 	
 	@Override
 	public void list(Model model, HttpServletRequest request) {
-		var list = mapper.selectAllWithDept();
+		var list = mapper.selectAll();
 		model.addAttribute("list", list);
 	}
 

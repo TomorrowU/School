@@ -46,7 +46,7 @@ public class EmpMapperTest {
 		var list = empMapper.selectAll();
 		assertThat(list.size()).isSameAs(14);
 		assertThat(list).allSatisfy(e -> {
-			assertThat(e.getDept()).isNull();
+			assertThat(e.getDeptno()).isNull();
 		});
 		
 		objectMapper.createGenerator(System.out)
