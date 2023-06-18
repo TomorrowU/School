@@ -1,8 +1,10 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -13,7 +15,9 @@ import jakarta.servlet.http.HttpServletRequest;
 @Configuration
 public class SecurityConfig {
 	
-	
+	@Autowired
+	UserDetailsService userDetailService;
+
 	@Bean
 	PasswordEncoder encoder() {
 	
@@ -33,10 +37,11 @@ public class SecurityConfig {
 		
 		http.authorizeHttpRequests(request->{
 			request.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll();
-			request.requestMatchers("/").permitAll();
+			request.requestMatchers("/","/user/login","/user/**").permitAll();
 			request.requestMatchers("/webjars/**").permitAll();
 			
-			request.anyRequest().permitAll();
+			request.anyRequest().authenticated();
+//			request.anyRequest().permitAll();
 		});
 		
 		http.formLogin(login->{

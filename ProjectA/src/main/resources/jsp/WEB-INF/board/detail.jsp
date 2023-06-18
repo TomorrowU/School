@@ -21,24 +21,26 @@
 <div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>Hello World!</h1>
 </div>
-
-<table class="table">
-	<tbody>
-			<tr>
-				<th>Bno</th>		<td>${detail.bno}</td>
-				<th>subject</th>	<td>${detail.subject}</td>
-				<th>content</th>    <td>${detail.content}</td>
-				<th>writer</th>  	<td>${detail.writer}</td>
-				<th>regDate</th>	<td>${detail.regDate}</td>
-			</tr>	
-	</tbody>
-</table>
-
+<section class="container">
+	<table class="table">
+		<tbody>
+				<tr>
+					<th>Bno</th>		<td>${detail.bno}</td>
+					<th>subject</th>	<td>${detail.subject}</td>
+					<th>writer</th>  	<td>${detail.writer}</td>
+					<th>regDate</th>	<td>${detail.regDate}</td>
+				</tr>	
+		</tbody>
+	</table>
+	<div class="well" style="">
+	<p>${detail.content}</p>
+	</div>
 <menu class="btn-group">
 		<a href="/board/insert" class="btn btn-primary">추가</a>
 		<a href="/dept/update?deptno=${dept.deptno}" class="btn btn-secondary">수정</a>
 		<a href="/dept/delete?deptno=${dept.deptno}" class="btn btn-danger">삭제</a>
-	</menu>
+</menu>
+</section>
 
 </body>
 </html>

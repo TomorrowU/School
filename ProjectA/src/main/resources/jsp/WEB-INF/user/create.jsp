@@ -17,6 +17,37 @@
 
 <title>create.jsp</title>
 </head>
+<script>
+// Check javascript has loaded
+$(document).ready(function(){
+
+  // Click event of the showPassword button
+  $('#showPassword').on('click', function(){
+
+    // Get the password field
+    var passwordField = $('#password');
+
+    // Get the current type of the password field will be password or text
+    var passwordFieldType = passwordField.attr('type');
+
+    // Check to see if the type is a password field
+    if(passwordFieldType == 'password')
+    {
+        // Change the password field to text
+        passwordField.attr('type', 'text');
+
+        // Change the Text on the show password button to Hide
+        $(this).val('Hide');
+    } else {
+        // If the password field type is not a password field then set it to password
+        passwordField.attr('type', 'password');
+
+        // Change the value of the show password button to Show
+        $(this).val('Show');
+    }
+  });
+});
+</script>
 <body>
 <h1>User Create 회원가입</h1>
 <hr>
@@ -32,7 +63,8 @@
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="password">password<span>*</span></label>
-			<input class="form-control" type="text"      id="password"  name="password"  placeholder="비밀번호를 입력하세요." value="${user.password}"/>
+			<input class="form-control"  type="password"      id="password"  name="password"  placeholder="비밀번호를 입력하세요." value="${user.password}"/>
+			<input type="button" id="showPassword" value="show" class="mt-1 btn" style="border: solid gray 2px;" /></p>
 		</div>
 		<div class="mb-3">
 			<label class="form-lable mb-2" for="role">role</label>
