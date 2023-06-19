@@ -31,9 +31,7 @@
 <div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>Hello World!</h1>
 </div>
-<script type="text/javascript">
-</script>
-
+<a href="/">Home</a>
 
 
 <section class="container">

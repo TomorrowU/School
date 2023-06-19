@@ -18,9 +18,34 @@
 <title></title>
 </head>
 <body>
-<div class="container-fluid p-5 bg-primary text-white text-center">
-<h1>Hello World!</h1>
-</div>
+
+<c:choose>
+	<c:when test="${param.insert ne null}"><div class="container-fluid p-5 bg-primary text-white text-center">
+	<h1>Insert</h1>
+	</div></c:when>
+	<c:when test="${param.update ne null}"><div class="container-fluid p-5 bg-primary text-white text-center">
+	<h1>Update</h1>
+	</div></c:when>
+	<c:when test="${param.delete ne null}"><div class="container-fluid p-5 bg-primary text-white text-center">
+	<h1>Delete</h1>
+	</div></c:when>
+</c:choose>
+
+
+
+<section class="container">
+	<a href="/board/list">list</a>
+	<table class="table">
+		<tbody>
+				<tr>
+					<th>Bno</th>		<td>${detail.bno}</td>
+					<th>subject</th>	<td>${detail.subject}</td>
+					<th>writer</th>  	<td>${detail.writer}</td>
+					<th>regDate</th>	<td>${detail.regDate}</td>
+				</tr>	
+		</tbody>
+	</table>
+</section>
 
 </body>
 </html>

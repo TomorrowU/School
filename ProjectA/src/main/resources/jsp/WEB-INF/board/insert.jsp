@@ -21,7 +21,10 @@
 <div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>Hello World!</h1>
 </div>
-
+<ul>
+<li><a href="/board/list">list</a>
+<li><a href="/board/detail/1">Detail</a>
+</ul>
 <section class="container">
 	<form action="/board/insert" method="post">
 		<div class="mb-3">

@@ -21,6 +21,10 @@
 <div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>Hello World!</h1>
 </div>
+
+
+<a href="/board/list">list</a>
+
 <section class="container">
 	<table class="table">
 		<tbody>
@@ -37,8 +41,8 @@
 	</div>
 <menu class="btn-group">
 		<a href="/board/insert" class="btn btn-primary">추가</a>
-		<a href="/dept/update?deptno=${dept.deptno}" class="btn btn-secondary">수정</a>
-		<a href="/dept/delete?deptno=${dept.deptno}" class="btn btn-danger">삭제</a>
+		<a href="/board/update?bno=${detail.bno}" class="btn btn-secondary">수정</a>
+		<a href="/board/delete?bno=${detail.bno}" class="btn btn-danger">삭제</a>
 </menu>
 </section>
 

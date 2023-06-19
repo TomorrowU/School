@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.imple.board.model.Board;
 import com.example.imple.board.model.BoardDTO;
@@ -21,6 +22,7 @@ public interface BoardMapper {
 	
 	@Select("""
 			select * from board
+			order by bno	
 			""")
 	List<Board> boardList();
 	
@@ -37,10 +39,11 @@ public interface BoardMapper {
         BOARD (BNO, SUBJECT,CONTENT,WRITER,reg_date)
         VALUES(#{b.bno},#{b.subject},#{b.content},#{b.writer},SYSDATE)
 			""")
-    public void boardInsert(@Param("b") BoardDTO board) throws Exception;
+    public void boardInsert(@Param("b") Board board) throws Exception;
     
     
-    public void boardUpdate(BoardDTO board) throws Exception;
+	
+    public void boardUpdate(Board board);
     
     @Delete("""
     		delete board where bno =#{bno}

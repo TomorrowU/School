@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/board")
-public class BoardTableController {
+public class BoardListController {
 	
 	@Autowired
 	BoardMapper mapper;

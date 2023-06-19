@@ -49,18 +49,18 @@ public class BoardInsertController implements InsertController<BoardDTO>{
 		if(binding.hasErrors())
 			return "redirect:/board/insert?error";
 		
+		 var in = dto.getModel();
+		
 		
 		try {
-			mapper.boardInsert(dto);
+			mapper.boardInsert(in);
 		} catch (Exception e) {
 			
 			return "redirect:/board/insert?error";
 		}
 		
 		
-		
-		
-		return "redirect:/board/success?create";
+		return "redirect:/board/success?insert";
 	}
 	
 }

@@ -28,6 +28,7 @@ name = <sec:authentication property="name"/>
 <sec:authorize access="isAuthenticated()">
 	<li><a href="/user/logout   ">/user/logout</a></li>
 </sec:authorize>
+	<li><a href="/board/list">list</a>
 </ul>
 <hr>
 <ul>
