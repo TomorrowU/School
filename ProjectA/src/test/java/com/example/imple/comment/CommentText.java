@@ -25,8 +25,11 @@ public class CommentText {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	@Test
+	void comment() {
+		System.out.println(mapper.commentList());
 		
 		
 	}
-	
 }

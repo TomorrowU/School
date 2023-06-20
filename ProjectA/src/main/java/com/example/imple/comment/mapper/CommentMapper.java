@@ -22,7 +22,7 @@ public interface CommentMapper {
 	 @Select("""
 	 		SELECT * FROM boardComment
 	 		""")
-	 public List<Comment> commentList() throws Exception;
+	 public List<Comment> commentList() ;
 	 
 	 // 댓글 작성
 	 @Insert("""

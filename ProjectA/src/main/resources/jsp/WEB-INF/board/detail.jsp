@@ -10,13 +10,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-store">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.js"></script>
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title></title>
+
+<script type="text/javascript">
+</script>
+
 </head>
+
+
 <body>
 <div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>Hello World!</h1>
@@ -32,19 +37,41 @@
 					<th>Bno</th>		<td>${detail.bno}</td>
 					<th>subject</th>	<td>${detail.subject}</td>
 					<th>writer</th>  	<td>${detail.writer}</td>
-					<th>regDate</th>	<td>${detail.regDate}</td>
+					<th>regDate</th>	<td><fmt:formatDate value="${detail.regDate}" pattern="yyyy.MM.dd HH:mm:ss"/></td>
 				</tr>	
 		</tbody>
 	</table>
 	<div class="well" style="">
 	<p>${detail.content}</p>
 	</div>
+	
+	<div class="container">
+        <label for="content">comment</label>
+        <form name="commentInsertForm">
+            <div class="input-group">
+               <input type="hidden" name="bno" value="${detail.bno}"/>
+               <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
+               </span>
+              </div>
+        </form>
+    </div>
+<div class="container">
+        <div class="commentList"></div>
+</div>
+	
+	<h3>${detail.bno}</h3>
+	
 <menu class="btn-group">
 		<a href="/board/insert" class="btn btn-primary">추가</a>
 		<a href="/board/update?bno=${detail.bno}" class="btn btn-secondary">수정</a>
 		<a href="/board/delete?bno=${detail.bno}" class="btn btn-danger">삭제</a>
 </menu>
 </section>
+
+<%@ include file ="commentS.jsp" %>
+
 
 </body>
 </html>
