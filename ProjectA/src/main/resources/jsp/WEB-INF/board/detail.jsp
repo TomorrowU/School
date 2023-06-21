@@ -82,22 +82,43 @@
 let name = '작성자 : ${username}'
 window.onload = function() {
 	  // 웹 페이지가 로드된 후 실행할 코드 작성
-	   setTimeout(function() {
+	   
+	   /* setTimeout(function() {
        console.log("로드 후 1초가 지났습니다.");
-       let p = document.getElementById("creater")
-	   if(p.textContent==name) {
-		  a.style.display="none";
-		console.log("hi");  	
-	   }
-	   }, 50); 
-	  
-	  console.log("웹 페이지가 로드되었습니다.");
-	  console.log(name);
-	  
-		  
-	  
-	  
+       var creater = Array.from(document.getElementsByClassName('creater'));
+       var a = Array.from(document.getElementsByClassName('a'));
+       var b = Array.from(document.getElementsByClassName('b'));
+       for(var i=0; i<creater.length;i++){
+       		if(name!=creater[i].textContent){
+       			console.log(creater[i]);
+       			a[i].style.display="none";
+       			b[i].style.display="none";
+       		}
+       }
+       
+	   },100); 
+	  console.log("웹 페이지가 로드되었습니다."); */
+		repeatTimeout();
 	};
+
+
+ 	function repeatTimeout(){	 
+		setTimeout(function() {
+	       console.log("로드 후 1초가 지났습니다.");
+	       var creater = Array.from(document.getElementsByClassName('creater'));
+	       var a = Array.from(document.getElementsByClassName('a'));
+	       var b = Array.from(document.getElementsByClassName('b'));
+	       for(var i=0; i<creater.length;i++){
+	       		if(name!=creater[i].textContent){
+	       			console.log(creater[i]);
+	       			a[i].style.display="none";
+	       			b[i].style.display="none";
+	       		}
+	    	}
+	       console.log(11);
+	       repeatTimeout();
+		},10); 
+ 	}
 
 
 </script>

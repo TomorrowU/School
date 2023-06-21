@@ -36,9 +36,9 @@ function commentList(){
             var a =''; 
             $.each(data, function(key, value){ 
                 a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
-                a += '<div class="commentInfo'+value.cno+'"><p id="creater">작성자 : '+value.writer;+'</p>'
-                a += '<div style="text-align: right;"><a id="a" onclick="commentUpdate('+value.cno+',\''+value.content+'\');"> 수정 </a>';
-                a += '<a id="a" onclick="commentDelete('+value.cno+');"> 삭제 </a></div> </div>';
+                a += '<div class="commentInfo'+value.cno+'"><p class="creater">작성자 : '+value.writer;+'</p>'
+                a += '<div style="text-align: right;"><a class="a" onclick="commentUpdate('+value.cno+',\''+value.content+'\');"> 수정 </a>';
+                a += '<a class="b" onclick="commentDelete('+value.cno+');"> 삭제 </a></div> </div>';
                 a += '<div class="commentContent'+value.cno+'"> <p style="text-align: left;"> 내용 : '+value.content+'</p>'+'<p style="text-align: right;">' +value.regDate+'</p>';
                 a += '</div></div>';
             });
