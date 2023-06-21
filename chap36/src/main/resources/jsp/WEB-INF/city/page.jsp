@@ -22,6 +22,7 @@
 <hr>
 <a href="/">Home</a>
 <hr>
+
 <section class="container">
 	<ul class="list-group list-group-horizontal">
 		<li><a href="/city/page/${paging.navigateFirstPage-1}/${paging.pageSize}" class="list-group-item">Previous</a></li>

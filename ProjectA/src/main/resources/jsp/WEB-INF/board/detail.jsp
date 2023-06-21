@@ -19,6 +19,11 @@
 <script type="text/javascript">
 </script>
 
+<style type="text/css">
+
+
+</style>
+
 </head>
 
 
@@ -52,7 +57,7 @@
                <input type="hidden" name="bno" value="${detail.bno}"/>
                <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
+                    <button class="ml-3 btn btn-secondary" type="button" name="commentInsertBtn">등록</button>
                </span>
               </div>
         </form>
@@ -71,6 +76,31 @@
 </section>
 
 <%@ include file ="commentS.jsp" %>
+
+<script type="text/javascript">
+
+let name = '작성자 : ${username}'
+window.onload = function() {
+	  // 웹 페이지가 로드된 후 실행할 코드 작성
+	   setTimeout(function() {
+       console.log("로드 후 1초가 지났습니다.");
+       let p = document.getElementById("creater")
+	   if(p.textContent==name) {
+		  a.style.display="none";
+		console.log("hi");  	
+	   }
+	   }, 50); 
+	  
+	  console.log("웹 페이지가 로드되었습니다.");
+	  console.log(name);
+	  
+		  
+	  
+	  
+	};
+
+
+</script>
 
 
 </body>

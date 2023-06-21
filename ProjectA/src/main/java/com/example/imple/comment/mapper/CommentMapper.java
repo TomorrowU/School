@@ -21,13 +21,16 @@ public interface CommentMapper {
 	 
 	 @Select("""
 	 		SELECT * FROM boardComment
+	 		where bno = #{bno}
 	 		""")
-	 public List<Comment> commentList() ;
+	 public List<Comment> commentList(int bno);
+	 
+	 
 	 
 	 // 댓글 작성
 	 @Insert("""
 	 		insert into boardComment values
-	 		(#{c.cno},#{c.bno},#{c.content},#{c.writer},SYSDATE
+	 		(boardComment_seq.NEXTVAL,#{c.bno},#{c.content},#{c.writer},SYSDATE
 	 		)
 	 		""")
 	 public int commentInsert(@Param("c") Comment comment) throws Exception;
@@ -38,11 +41,11 @@ public interface CommentMapper {
             CONTENT = #{content}
             WHERE CNO = #{cno}
 	 		""")
-	 public int commentUpdate(Comment comment) throws Exception;
+	 public int commentUpdate(Comment comment)  ;
 	 
 	 @Delete("""
-	 		delete from comment where cno=${cno}
+	 		delete from boardComment where cno=${cno}
 	 		""")
-	 public int commentDelete(int cno) throws Exception;
+	 public int commentDelete(int cno)  ;
 
 }

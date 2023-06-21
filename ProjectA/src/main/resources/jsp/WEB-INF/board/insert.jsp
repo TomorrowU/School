@@ -29,7 +29,8 @@
 	<form action="/board/insert" method="post">
 		<div class="mb-3">
 		<label for="bno">bno</label>
-		<input class="form-control" id="bno" name="bno"  type="number" min="${count}" max="${count+1}">
+		<input class="form-control" id="bno" name="bno"  type="number" value="${count+1}" disabled="disabled">
+		<input class="form-control" id="bno" name="bno"  type="hidden" value="${count+1}" >
 		</div>
 		<div class="mb-3">
 		<label for="subject">subject</label>
@@ -41,11 +42,14 @@
 		</div>
 		<div class="mb-3">
 		<label for="writer">writer</label>
-		<input class="form-control" id="writer" name="writer"  type="text">
+		<input class="form-control" id="writer" name="writer"  type="text" value="${username}" disabled="disabled">
+		<input class="form-control" id="writer" name="writer"  type="hidden" value="${username}" >
 		</div>
 		<input class="form-control" type="submit">
 </form>
 </section>
+
+
 
 <c:if test="${binding.hasErrors()})">
 	<h3>Error</h3>

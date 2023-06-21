@@ -18,7 +18,7 @@ public class CommentText {
 		Comment cm = Comment.of(2,2, "수정수정","수정수정", null);
 		try {
 			System.out.println(mapper.commentCount());
-			System.out.println(mapper.commentList());
+//			System.out.println(mapper.commentList());
 //			mapper.commentInsert(cm);
 			mapper.commentUpdate(cm);
 		} catch (Exception e) {
@@ -28,7 +28,7 @@ public class CommentText {
 	}
 	@Test
 	void comment() {
-		System.out.println(mapper.commentList());
+//		System.out.println(mapper.commentList());
 		
 		
 	}

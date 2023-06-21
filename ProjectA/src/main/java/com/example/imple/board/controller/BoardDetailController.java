@@ -1,6 +1,8 @@
 package com.example.imple.board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +22,15 @@ public class BoardDetailController implements DetailController<Integer>{
 	@Override
 	public String detail(Integer key, Model model, HttpServletRequest request) {
 		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		
+		
+		
 		try {
 		var detail =mapper.boardDetail(key);
 		model.addAttribute("detail",detail);
+		model.addAttribute("username",username);
 		} catch (Exception e) {
 			
 		}

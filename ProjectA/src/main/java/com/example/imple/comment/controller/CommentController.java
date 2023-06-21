@@ -3,11 +3,16 @@ package com.example.imple.comment.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -25,8 +30,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/comment")
-public class CommentController implements  CreateController<CommentDTO> , UpdateController<CommentDTO> 
- , DeleteController<CommentDTO> {
+public class CommentController  {
 
 	@Autowired
 	CommentMapper mapper;
@@ -36,56 +40,61 @@ public class CommentController implements  CreateController<CommentDTO> , Update
 	
 	@GetMapping("/list")
 	@ResponseBody
-	public List<Comment> list(Model model ,HttpServletRequest request) {
+	public List<Comment> list(Model model ,HttpServletRequest request , int bno) {
 			
-		var value = mapper.commentList();
+		var value = mapper.commentList(bno);
 		
 		return value;
 		
 	}
 		
 		
-	@Override
-	public void create(Model model, HttpServletRequest request) {
+	@PostMapping("/insert")
+	@ResponseBody
+	public int insertComment(int bno , String content) throws Exception {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		// 사용자 이름(username) 가져오기
+		String username = authentication.getName();
 		
 		
+		Comment comment = Comment.of(3, bno, content, content, null);
+		comment.setBno(bno);
+		comment.setContent(content);
+		comment.setWriter(username);
+		
+		var insert = mapper.commentInsert(comment);
+		
+		return insert;
 	}
 	
-	@Override
-	public String create(@Valid CommentDTO dto, BindingResult binding, Model model, HttpServletRequest request,
+	
+
+	@PostMapping("/update")
+	@ResponseBody
+	public int update(int cno,String content , Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
 		
-		if(binding.hasErrors())
-			return "redirect:/comment/create?error";
-
-		dto.getModel();
+		Comment comment = Comment.of(cno, cno, content, content, null);
+		
+		comment.setContent(content);
+		var update =mapper.commentUpdate(comment);
 		
 		
-		return "redirect:/comment/create?success";
-	}
-	@Override
-	public void delete(Model model, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update(Model model, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
+		return update;
 	}
 	
-	@Override
-	public String update(@Valid CommentDTO dto, BindingResult binding, Model model, HttpServletRequest request,
+	@PostMapping("/delete/{cno}")
+	@ResponseBody
+	public int delete(@PathVariable int cno ,@Valid CommentDTO dto, BindingResult binding, Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public String delete(@Valid CommentDTO dto, BindingResult binding, Model model, HttpServletRequest request,
-			RedirectAttributes attr) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		
+		var delete =mapper.commentDelete(cno);
+		
+		return delete;
 	}
 
 

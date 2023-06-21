@@ -2,6 +2,8 @@ package com.example.imple.board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -24,8 +26,11 @@ public class BoardInsertController implements InsertController<BoardDTO>{
 	
 	@Override
 	public void insert(Model model, HttpServletRequest request) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
 		
 		model.addAttribute("count",mapper.boardCount());
+		model.addAttribute("username",username);
 		
 		var error = request.getParameter("error");
 		if(error==null) {
@@ -40,6 +45,7 @@ public class BoardInsertController implements InsertController<BoardDTO>{
 	@Transactional
 	public String insert(BoardDTO dto, BindingResult binding, Model model, HttpServletRequest request,
 			RedirectAttributes attr) {
+		
 		
 		model.addAttribute("count",mapper.boardCount());
 		
