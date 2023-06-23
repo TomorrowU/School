@@ -66,7 +66,7 @@ public class BoardInsertController implements InsertController<BoardDTO>{
 		}
 		
 		
-		return "redirect:/board/success?insert";
+		return "redirect:/board/page/1/5";
 	}
 	
 }

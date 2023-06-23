@@ -22,6 +22,7 @@ public interface CommentMapper {
 	 @Select("""
 	 		SELECT * FROM boardComment
 	 		where bno = #{bno}
+	 		order by cno
 	 		""")
 	 public List<Comment> commentList(int bno);
 	 

@@ -27,18 +27,10 @@ public class BoardMapperTest {
 	@Test
 	@Transactional
 	void boardCount() throws Exception {
-//		System.out.println(mapper.boardCount());
-		System.out.println(mapper.boardList());
-//		System.out.println(mapper.boardDetail(1));
-		
-		Board board = Board.of(1,"제목2","내용2","오우",null);
-//		mapper.boardInsert(board);
-		mapper.boardDelete(1);
-//		mapper.boardUpdate(board);
 		
 		
 		
 		objectMapper.createGenerator(System.out)
-					.writeObject(mapper.boardList());
+					.writeObject(mapper.findByTitleContaining("ㄴㅁ"));
 	}
 }

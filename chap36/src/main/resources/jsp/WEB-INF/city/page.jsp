@@ -32,7 +32,7 @@
 				<li class="list-group-item active"><a href="/city/page/${n}/${paging.pageSize}" class="text-danger">${n}</a></li>
 			</c:when>
 			<c:when test="${n ne paging.pageNum}">
-				<li class="list-group-item       "><a href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
+				<li class="list-group-item"><a href="/city/page/${n}/${paging.pageSize}">${n}</a></li>
 			</c:when>
 		</c:choose>
 	</c:forEach>

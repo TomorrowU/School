@@ -14,45 +14,11 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <script src="/webjars/jquery/jquery.js"></script>
-<link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+
 <style type="text/css">
-
-* {
-	margin: 0;
-	padding: 0;
-	font-family: 'GmarketSans';
-	font-size: 22px;
-}
-
-li {
-	list-style: none;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.card {
-	margin: 50px auto;
-	width: 1600px;
-	height: 1000px;
-	box-shadow: 3px 3px 50px #e6e6e6;
-	border-radius: 20px;
-	position: relative;
-}
-
-.card-header {
-	text-align: center;
-	background-color: #242424;
-	color: #78b862;
-}
-
-.card-header1 h1 {
+.card-header 1 h1 {
 	font-size: 30px;
 	font-weight: 600;
-	
-	
 }
 
 .card-write {
@@ -83,10 +49,10 @@ a {
 }
 
 .card-write .msg textarea {
-	min-width: 95.5%;
-	max-width: 95.5%;
-	min-height: 600px;
-	max-height: 600px;
+	min-width: 85.5%;
+	max-width: 85.5%;
+	min-height: 200px;
+	max-height: 200px;
 	box-shadow: inset 3px 3px 10px #e6e6e6;
 	
 	vertical-align: top;
@@ -107,54 +73,19 @@ a {
 	padding: 10px;
 }
 
-.btn-w input {
-	background-color: #242424;
+.btn-w a {
+	background-color: tomato;
 	padding: 10px;
-	color: #78b862;
+	color: #fff;
 	border-radius: 10px;
 }
-
 
 </style>
 
 <title></title>
- <script>
-    function updateInputValue() {
-      var input = document.getElementById("timeInput");
-      var currentTime = new Date().toLocaleTimeString();
-      input.value = currentTime;
-    }
-
-    // 1초마다 updateInputValue 함수 호출
-    setInterval(updateInputValue, 100);
-  </script>
 </head>
 <body>
 
-<div class="card">
-	<div class="card-header">
-		<h1  style="text-align: center; "><a href="/" >새 글 작성</a></h1>
-	</div>
-	<div class="card-write">
-	<form action="/board/insert" method="post">
-		<div class="myinfo">
-			<label for="writer">이름</label>
-			<input  id="writer" name="writer"  type="text" value="${username}" disabled="disabled">
-			<input  id="writer" name="writer"  type="hidden" value="${username}" >
-			현재시간<input type="text" style="width: 40%;" id="timeInput" disabled="disabled">
-		</div>
-		<div class="title-w">
-			<label for="subject">제목</label>
-			<input required="required" id="subject" name="subject" type="text" placeholder="제목을 입력하세요">
-		</div>
-		<div class="msg">
-			<label for="content">내용</label>
-			<textarea id="content" name="content" placeholder="내용을 입력하세요."></textarea>
-		</div>
-	</div>
-	<div class="btn-w"><input type="submit"></div>
-	</form>
-</div>
 
 
 
@@ -165,7 +96,28 @@ a {
 
 
 
-<%-- <div class="container-fluid p-5 bg-primary text-white text-center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>Hello World!</h1>
 </div>
 <ul>
@@ -176,8 +128,8 @@ a {
 	<form action="/board/insert" method="post">
 		<div class="mb-3">
 		<!-- <label for="bno">bno</label> -->
-		<input class="form-control" id="bno" name="bno"  type="number" value="${count+1}" disabled="disabled">
-		<input class="form-control" id="bno" name="bno"  type="hidden" value="${count+1}" >
+		<%-- <input class="form-control" id="bno" name="bno"  type="number" value="${count+1}" disabled="disabled"> --%>
+		<%-- <input class="form-control" id="bno" name="bno"  type="hidden" value="${count+1}" > --%>
 		</div>
 		<div class="mb-3">
 		<label for="subject">subject</label>
@@ -194,27 +146,7 @@ a {
 		</div>
 		<input class="form-control" type="submit">
 </form>
-</section> --%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</section>
 
 
 

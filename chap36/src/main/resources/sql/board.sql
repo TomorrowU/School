@@ -1,9 +1,20 @@
 Drop Table board;
 
+Drop SEQUENCE board_seq;
+
+CREATE SEQUENCE board_seq
+       INCREMENT BY 1
+       START WITH 2
+       MINVALUE 2
+       MAXVALUE 9999
+       NOCYCLE
+       NOCACHE
+       NOORDER;
+
 CREATE TABLE board (
     bno      NUMBER(5)           NOT NULL CONSTRAINT BOARD_BNO_PK PRIMARY KEY,         
     subject  VARCHAR2(20 char)   NOT NULL,
-    content  VARCHAR2(2000 char)         ,
+    content  VARCHAR2(3000 char)         ,
     writer   VARCHAR2(10 char)   NOT NULL,
     reg_date date default sysdate
      );

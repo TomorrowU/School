@@ -34,7 +34,7 @@
 
 
 <section class="container">
-	<a href="/board/list">list</a>
+	<a href="/board/page/1/5">list</a>
 	<table class="table">
 		<tbody>
 				<tr>

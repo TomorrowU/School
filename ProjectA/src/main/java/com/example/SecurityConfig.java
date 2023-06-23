@@ -37,7 +37,7 @@ public class SecurityConfig {
 		
 		http.authorizeHttpRequests(request->{
 			request.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll();
-			request.requestMatchers("/","/user/login","/user/**").permitAll();
+			request.requestMatchers("/","/user/login","/user/**","/board/page/**","/board/detail/**").permitAll();
 			request.requestMatchers("/webjars/**").permitAll();
 			
 			request.anyRequest().authenticated();
@@ -46,7 +46,7 @@ public class SecurityConfig {
 		
 		http.formLogin(login->{
 			login.loginPage("/user/login");
-			login.defaultSuccessUrl("/",true);
+			login.defaultSuccessUrl("/board/page/1/5",true);
 			login.failureHandler((request,response,e)->{
 				request.setAttribute("exception", e);
 				request.getRequestDispatcher("/user/login-fail").forward(request, response);

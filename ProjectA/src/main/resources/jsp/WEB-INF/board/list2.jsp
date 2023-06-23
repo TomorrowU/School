@@ -45,7 +45,7 @@ nav {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  background: #ccc;
+  /* background: #ccc; */
   padding: 20px;
 }
 
@@ -69,7 +69,7 @@ footer {
   /* background-color: #777; */
   padding: 10px;
   text-align: center;
-  color: white;
+  /* color: white; */
 }
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
@@ -85,6 +85,30 @@ footer {
       text-overflow: ellipsis;
       max-width: 100px; /* 최대 너비 설정 */
     }
+    
+    .board {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.board th, .board td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.board thead {
+  background-color: #f2f2f2;
+}
+
+.board tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.board tbody tr:hover {
+  background-color: #e6e6e6;
+}
+    
 </style>
 
 </head>
@@ -104,7 +128,7 @@ footer {
   </article>
 </section>
 <footer>
-	<table class="table">
+	<table class="board">
 		<thead>
 			<tr>	
 				<th>Bno</th>

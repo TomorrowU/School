@@ -7,10 +7,9 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import com.example.imple.board.model.Board;
-import com.example.imple.board.model.BoardDTO;
+import com.github.pagehelper.Page;
 
 @Mapper
 public interface BoardMapper {
@@ -37,7 +36,7 @@ public interface BoardMapper {
 	@Insert("""
 			 INSERT INTO
         BOARD (BNO, SUBJECT,CONTENT,WRITER,reg_date)
-        VALUES(#{b.bno},#{b.subject},#{b.content},#{b.writer},SYSDATE)
+        VALUES(board_seq.NEXTVAL,#{b.subject},#{b.content},#{b.writer},SYSDATE)
 			""")
     public void boardInsert(@Param("b") Board board) throws Exception;
     
@@ -50,4 +49,13 @@ public interface BoardMapper {
     		""")
     public void boardDelete(int bno) throws Exception;
 	
+    
+    @Select("select * from Board order by bno")
+    Page<Board> selectPage();
+    
+    @Select("""
+    		select * from board where subject like '%${keyword}%'
+    		""")
+    List<Board> findByTitleContaining(String keyWord);
+    
 }

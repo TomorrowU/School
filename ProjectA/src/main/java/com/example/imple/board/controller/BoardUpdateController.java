@@ -50,7 +50,7 @@ public class BoardUpdateController implements UpdateController<BoardDTO>{
 		
 		
 		
-		return "redirect:/board/success?update";
+		return "redirect:/board/page/1/5";
 	}
 	
 }
