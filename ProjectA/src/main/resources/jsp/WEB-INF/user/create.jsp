@@ -67,8 +67,8 @@ $(document).ready(function(){
 			<input type="button" id="showPassword" value="show" class="mt-1 btn" style="border: solid gray 2px;" /></p>
 		</div>
 		<div class="mb-3">
-			<label class="form-lable mb-2" for="role">role</label>
-			<input class="form-control"    id="role"	   name="role"    placeholder="권한을 입력하세요." value="${user.role}"/>
+			<label class="form-lable mb-2" for="role">이메일</label>
+			<input class="form-control"    id="role"	   name="role"    placeholder="메일주소를 입력해주세요." value=""/>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>	

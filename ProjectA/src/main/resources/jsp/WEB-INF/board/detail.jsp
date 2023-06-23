@@ -167,11 +167,18 @@ number li a {
 <body>
 <div class="container-fluid p-5 bg-primary text-white text-center">
 <h1>게시판</h1>
+<sec:authorize access="isAuthenticated()">
+		<h2 style="text-align: center; margin-top: 40px;"><sec:authentication property="name"/>님 환영합니다</h2>
+</sec:authorize>
 </div>
 
 
-<a href="/board/page/1/5">list</a>
-
+<a href="/board/update?bno"></a>	
+	<menu class="btn-group">
+	<a href="/board/page/1/5" class="btn btn-primary">list</a>
+	<a href="/board/update?bno=${detail.bno}" class="btn btn-secondary">수정</a>
+	<a href="/board/delete?bno=${detail.bno}" class="btn btn-danger">삭제</a>
+	</menu>
 <section class="container">
 	<table class="table">
 		<tbody>
@@ -197,7 +204,7 @@ number li a {
                <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
               
                <sec:authorize access="!isAuthenticated()">
-				<button class="ml-3 btn btn-secondary" type="button" ><a href="/user/login">로그인</a></button>
+				<button class="ml-3 btn " type="button" ><a  style="text-decoration: none;" href="/user/login">로그인</a></button>
 				</sec:authorize>
                <sec:authorize access="isAuthenticated()">
                <span class="input-group-btn">
@@ -208,7 +215,7 @@ number li a {
         </form>
     </div>
 <div class="card">
-        <div class="commentList"></div>
+        <div class="commentList container" style=""></div>
 </div>
 	
 	
